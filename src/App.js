@@ -11,7 +11,7 @@ const TOTAL_MINT_COUNT = 50;
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const checkIfWalletIsConnected = () => {
+  const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
 
   if(!ethereum){
@@ -40,6 +40,7 @@ const App = () => {
         alert("Get MetaMask!");
         return;
       }
+
       const accounts = await ethereum.request({ method: "eth_requestAccounts"});
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);

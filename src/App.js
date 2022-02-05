@@ -92,8 +92,6 @@ const App = () => {
           alert(`Hey there, We've minted your NFT and sent it to your wallet. It may be blank right now. It can take a max of 10 min to show up on OpenSea. Here's the link: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`)
         });
 
-        console.log("Setup event listener!")
-
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -136,15 +134,17 @@ const App = () => {
   );
 
   const renderMintUI = () => {
-    <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
-      Mint NFT
-    </button>
+    return (
+      <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
+        Mint NFT
+      </button>)
   }
 
   const renderWaitUI = () => {
-    <button className="cta-button connect-wallet-button" disabled>
-      Please Wait!
-    </button>
+    return (
+      <button className="cta-button connect-wallet-button" disabled>
+        Please Wait!
+      </button>)
   }
 
   useEffect(() => {

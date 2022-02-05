@@ -7,7 +7,7 @@ import myEpicNFT from './utils/MyEpicNFT.json';
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = '';
+const OPENSEA_LINK = 'https://testnets.opensea.io/collection/squarenft-qjqtxp0dil';
 const TOTAL_MINT_COUNT = 50;
 const rinkebyChainId = "0x4"; 
 const CONTRACT_ADDRESS = "0x13b7DEf65C10617a6Cb5d966EEB2fE6CD3aB3164";
@@ -147,6 +147,14 @@ const App = () => {
       </button>)
   }
 
+  const renderOpenUI = () => {
+    return (
+      <button onClick={window.open(OPENSEA_LINK)} className="cta-button connect-wallet-button">
+        View My Collection :)
+      </button>)
+  }
+
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, [])
@@ -164,7 +172,7 @@ const App = () => {
             { currentState === "ready" ? renderMintUI() : renderWaitUI() }
           </>
           )}
-          
+         {renderOpenUI()} 
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />

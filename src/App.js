@@ -51,7 +51,7 @@ const App = () => {
 
   // Render Methods
   const renderNotConnectedContainer = () => (
-    <button className="cta-button connect-wallet-button">
+    <button onClick={connectWallet} className="cta-button connect-wallet-button">
       Connect to Wallet
     </button>
   );
@@ -68,12 +68,13 @@ const App = () => {
           <p className="sub-text">
             Each unique. Each beautiful. Discover your NFT today.
           </p>
-          {currentAccount === "" ? (renderNotConnectedContainer()) : 
-            (
+          {currentAccount === "" ? (
+            renderNotConnectedContainer()
+          ) : (
             <button onClick={null} className="cta-button connect-wallet-button">
-                Mint NFT
-              </button>
-            )}
+              Mint NFT
+            </button>
+          )}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />

@@ -149,7 +149,7 @@ const App = () => {
 
   const renderOpenUI = () => {
     return (
-      <button onClick={window.open(OPENSEA_LINK)} className="cta-button opensea-button">
+      <button onClick={ () => window.open(OPENSEA_LINK) } className="cta-button opensea-button">
         View My Collection :)
       </button>)
   }
@@ -172,6 +172,7 @@ const App = () => {
             { currentState === "ready" ? renderMintUI() : renderWaitUI() }
           </>
           )}
+          <br/>
           <br/>
          {renderOpenUI()} 
         </div>

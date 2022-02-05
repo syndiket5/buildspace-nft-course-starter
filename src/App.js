@@ -10,6 +10,7 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const OPENSEA_LINK = '';
 const TOTAL_MINT_COUNT = 50;
 const rinkebyChainId = "0x4"; 
+const CONTRACT_ADDRESS = "0x13b7DEf65C10617a6Cb5d966EEB2fE6CD3aB3164";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -84,7 +85,7 @@ const App = () => {
   
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNFT.abi, signer);
 
         connectedContract.on("NewEpicNFTMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber())
@@ -102,7 +103,6 @@ const App = () => {
   }
 
   const askContractToMintNft = async () => {
-    const CONTRACT_ADDRESS = "0x13b7DEf65C10617a6Cb5d966EEB2fE6CD3aB3164";
     try{
       const { ethereum } = window;
 
